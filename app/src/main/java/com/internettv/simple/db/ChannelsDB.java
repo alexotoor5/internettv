@@ -24,6 +24,8 @@ public class ChannelsDB {
                 {"تماشا","tamasha"},
 
                 {"DW","dw"},
+                {"NLPO", "nlpo"},
+                {"123 TV", "123tv"},
                 {"Red Bull TV","redbull"},
                 {"Euronews","euronews"}
         };
