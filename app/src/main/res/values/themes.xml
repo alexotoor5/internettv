@@ -1,0 +1,18 @@
+<resources>
+
+    <style name="Theme.InternetTV" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#0A69FF</item>
+        <item name="colorPrimaryDark">#003F99</item>
+        <item name="colorAccent">#0A69FF</item>
+        <item name="android:statusBarColor">#000000</item>
+        <item name="android:navigationBarColor">#000000</item>
+    </style>
+
+    <style name="Theme.InternetTV.Ultra" parent="Theme.AppCompat.DayNight">
+        <item name="colorPrimary">#5A00FF</item>
+        <item name="colorAccent">#00E2FF</item>
+        <item name="android:statusBarColor">#0C0031</item>
+        <item name="android:navigationBarColor">#0C0031</item>
+    </style>
+
+</resources>

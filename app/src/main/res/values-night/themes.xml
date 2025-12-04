@@ -1,0 +1,13 @@
+<resources>
+
+    <style name="Theme.InternetTV" parent="Theme.AppCompat.DayNight">
+        <item name="colorPrimary">#083B88</item>
+        <item name="colorAccent">#0A69FF</item>
+    </style>
+
+    <style name="Theme.InternetTV.Ultra" parent="Theme.AppCompat.DayNight">
+        <item name="colorPrimary">#3800A8</item>
+        <item name="colorAccent">#00C0FF</item>
+    </style>
+
+</resources>
