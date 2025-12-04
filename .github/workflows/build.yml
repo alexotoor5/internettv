@@ -1,0 +1,40 @@
+name: InternetTV Build
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Install ImageMagick
+      run: sudo apt-get install -y imagemagick
+
+    - name: Make scripts executable
+      run: chmod +x .github/scripts/download_logos.sh
+
+    - name: Download Channel Logos
+      run: .github/scripts/download_logos.sh
+
+    - name: Install JDK 17
+      uses: actions/setup-java@v3
+      with:
+        distribution: temurin
+        java-version: 17
+
+    - name: Allow Gradlew
+      run: chmod +x gradlew
+
+    - name: Build Release APK
+      run: ./gradlew assembleRelease --no-daemon
+
+    - name: Export APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: InternetTV-release
+        path: app/build/outputs/apk/release/*.apk
