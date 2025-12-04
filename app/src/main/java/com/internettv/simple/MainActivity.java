@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     TextView currentChannel;
 
     // سرور Koyeb شما
-    String BASE = "https://pleased-linea-alexooro-715f0557.koyeb.app/api/watch/";
+    String BASE = "https://itchy-estrella-alexoorooo-6c0f4acb.koyeb.app/api/watch/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
