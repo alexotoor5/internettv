@@ -1,0 +1,32 @@
+name: SuperFastBuild-Cache
+
+on:
+  push:
+    branches: [ "main", "master" ]
+
+jobs:
+  superfastcache:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java 17 (with cache)
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+          cache: gradle
+
+      - name: Allow Gradle
+        run: chmod +x ./gradlew
+
+      - name: Super Fast Build with Cache
+        run: ./gradlew assembleDebug --no-daemon --no-build-cache --warning-mode=none --max-workers=2
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: TVApp-SuperFastCache-Debug
+          path: app/build/outputs/apk/debug/app-debug.apk

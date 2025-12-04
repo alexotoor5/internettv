@@ -1,0 +1,29 @@
+name: SuperFastBuild
+
+on:
+  push:
+    branches: [ "main", "master" ]
+
+jobs:
+  superfast:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-java@v3
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Allow Gradle
+        run: chmod +x ./gradlew
+
+      - name: Build (Super Fast)
+        run: ./gradlew assembleDebug --no-daemon --no-build-cache --warning-mode=none
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: TVApp-Debug
+          path: app/build/outputs/apk/debug/app-debug.apk
